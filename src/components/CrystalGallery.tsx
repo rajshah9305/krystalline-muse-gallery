@@ -4,6 +4,14 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Text, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Import local portrait images
+import portrait1 from '@/assets/portrait-1.jpg';
+import portrait2 from '@/assets/portrait-2.jpg';
+import portrait3 from '@/assets/portrait-3.jpg';
+import portrait4 from '@/assets/portrait-4.jpg';
+import portrait5 from '@/assets/portrait-5.jpg';
+import portrait6 from '@/assets/portrait-6.jpg';
+
 interface CrystalFacetProps {
   position: [number, number, number];
   rotation: [number, number, number];
@@ -90,35 +98,35 @@ const Crystal: React.FC<{ mousePosition: { x: number; y: number } }> = ({ mouseP
   const groupRef = useRef<THREE.Group>(null);
   const [selectedFacet, setSelectedFacet] = useState<number | null>(null);
   
-  // Sample gallery data - replace with actual Megan Fox images
+  // Gallery data with local images
   const galleryItems = [
     {
-      imageUrl: "https://images.unsplash.com/photo-1494790108755-2616c19421d1?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait1,
       title: "Portrait Study I",
       description: "Digital art piece capturing ethereal beauty"
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait2,
       title: "Cinematic Moment",
       description: "Inspired by iconic film scenes"
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait3,
       title: "Golden Hour",
       description: "Warm lighting study with golden tones"
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait4,
       title: "Portrait Study II",
       description: "Contemporary digital interpretation"
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait5,
       title: "Ethereal Glow",
       description: "Soft lighting and turquoise accents"
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&crop=face",
+      imageUrl: portrait6,
       title: "Classic Beauty",
       description: "Timeless elegance captured"
     }
