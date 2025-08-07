@@ -11,6 +11,12 @@ import portrait3 from '@/assets/portrait-3.jpg';
 import portrait4 from '@/assets/portrait-4.jpg';
 import portrait5 from '@/assets/portrait-5.jpg';
 import portrait6 from '@/assets/portrait-6.jpg';
+import portrait7 from '@/assets/portrait-7.jpg';
+import portrait8 from '@/assets/portrait-8.jpg';
+import portrait9 from '@/assets/portrait-9.jpg';
+import portrait10 from '@/assets/portrait-10.jpg';
+import portrait11 from '@/assets/portrait-11.jpg';
+import portrait12 from '@/assets/portrait-12.jpg';
 
 interface CrystalFacetProps {
   position: [number, number, number];
@@ -129,6 +135,36 @@ const Crystal: React.FC<{ mousePosition: { x: number; y: number } }> = ({ mouseP
       imageUrl: portrait6,
       title: "Classic Beauty",
       description: "Timeless elegance captured"
+    },
+    {
+      imageUrl: portrait7,
+      title: "Dramatic Luminance",
+      description: "Professional cinematic lighting study"
+    },
+    {
+      imageUrl: portrait8,
+      title: "Artistic Vision",
+      description: "Moody atmospheric composition"
+    },
+    {
+      imageUrl: portrait9,
+      title: "Ethereal Dreams",
+      description: "Soft focus with golden bokeh"
+    },
+    {
+      imageUrl: portrait10,
+      title: "High Fashion",
+      description: "Studio lighting with dramatic contrast"
+    },
+    {
+      imageUrl: portrait11,
+      title: "Dynamic Grace",
+      description: "Hair in motion with turquoise accents"
+    },
+    {
+      imageUrl: portrait12,
+      title: "Natural Elegance",
+      description: "Contemporary beauty with gentle warmth"
     }
   ];
 
@@ -151,8 +187,10 @@ const Crystal: React.FC<{ mousePosition: { x: number; y: number } }> = ({ mouseP
       {/* Central crystal structure with facets */}
       {galleryItems.map((item, index) => {
         const angle = (index / galleryItems.length) * Math.PI * 2;
-        const radius = 3;
-        const height = (Math.sin(index * 0.5) * 2);
+        const innerRadius = 2.5;
+        const outerRadius = 4;
+        const radius = index % 2 === 0 ? innerRadius : outerRadius;
+        const height = (Math.sin(index * 0.8) * 3) + (Math.cos(index * 1.2) * 1.5);
         
         return (
           <CrystalFacet
@@ -162,7 +200,11 @@ const Crystal: React.FC<{ mousePosition: { x: number; y: number } }> = ({ mouseP
               height,
               Math.sin(angle) * radius
             ]}
-            rotation={[0, -angle + Math.PI/2, 0]}
+            rotation={[
+              Math.sin(index * 0.3) * 0.2,
+              -angle + Math.PI/2,
+              Math.cos(index * 0.4) * 0.1
+            ]}
             imageUrl={item.imageUrl}
             title={item.title}
             description={item.description}
